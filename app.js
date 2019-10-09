@@ -40,7 +40,7 @@ io.on('connection', function (socket) {
         connect.then(db  =>  {
             console.log("Getting chat history");
             Chat.find({}).then(chat => {
-                io.emit('chatHistory', chat)
+                socket.emit('chatHistory', chat)
             });
         });
     });
